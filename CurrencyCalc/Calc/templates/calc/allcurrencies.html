@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'Calc/style.css' %}">
+    </head>
+
+    <body>
+    <h2>Всички валути</h2>
+
+        <table>
+            <tr>
+                <th>Наименование</th>
+                <th>Код</th>
+                <th>За единица валута</th>
+                <th>Лева</th>
+                <th>За един лев</th>
+            </tr>
+             {% for curr in all_curr %}
+            <tr>
+
+                <td>{{curr.name}}</td>
+                <td>{{curr.shortname}}</td>
+                <td>{{curr.quantity}}</td>
+                <td>{{curr.tobgn}}</td>
+                <td>{{curr.frombgn}}</td>
+            </tr>
+             {% endfor %}
+        </table>
+        <br/><br/>
+        <a href="{% url 'add_currencies' %}">Добави валута</a>
+        <br/><br/>
+        <a href="{% url 'calculate' %}">Валутен калкулатор</a>
+
+    </body>
+</html>

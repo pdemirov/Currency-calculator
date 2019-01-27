@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Currency Calculator</title>
+    </head>
+
+    <body>
+        <h1>Валутен калкулатор</h1>
+
+
+        <form method="post">
+            {% csrf_token %}
+            <table>
+
+               <tr>
+                <th>Количество</th>
+                <th>От валута</th>
+                <th>Към валута</th>
+                <th></th>
+                <th>Резултат</th>
+               </tr>
+
+                <tr>
+                    <td>{{ form.qtity }}</td>
+                    <td>{{ form.from_curr }}</td>
+                    <td>{{ form.to_curr }}</td>
+                    <td><button type="submit">Калкулирай</button></td>
+                </tr>
+            </table>
+            </form>
+        <br/>
+     <a href="{% url 'currencies' %}">Всички валути</a>
+    </body>
+</html>
